@@ -1,12 +1,7 @@
 package edu.neumont.csc150.Ball;
 
 public class Ball {
-	private int x;
-	private int y;
-	private int height;
-	private int width;
-	private int xVel;
-	private int yVel;
+	private int x, y, height, width, xVel, yVel;
 	
 	public Ball(){}
 	
@@ -19,6 +14,21 @@ public class Ball {
 		this.setyVel(yVel);
 	}
 	
+	/**
+	 * Detects collision of the ball to an object
+	 * @param rObjX
+	 * @param rObjY
+	 * @param lObjX
+	 * @param lObjY
+	 */
+	public void detectCollision(int rObjX, int rObjY, int lObjX, int lObjY) {
+		if(this.x >= rObjX - this.width || this.x < lObjX) {
+			this.xVel *= -1;
+		}
+		if(this.y >= lObjY - this.height || this.y < lObjY) {
+			this.yVel *= -1;
+		}
+	}
 	/**
 	 * @return the x
 	 */
