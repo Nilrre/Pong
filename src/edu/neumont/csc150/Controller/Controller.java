@@ -9,4 +9,9 @@ public class Controller {
 	private Player player1;
 	private Player player2;
 	private Ball ball;
+	
+	public void controlGUI() {
+		ui = new PongUI();
+		ui.guiMain();
+	}
 }
