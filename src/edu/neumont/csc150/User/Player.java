@@ -6,8 +6,8 @@ public class Player extends Bar {
 	
 	public Player(){}
 	
-	public Player(int score, String name){
-		this.setName(name);
+	public Player(int score){
+//		this.setName(name);
 		this.setScore(score);
 	}
 	

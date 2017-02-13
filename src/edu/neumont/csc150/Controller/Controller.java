@@ -20,40 +20,49 @@ public class Controller implements ActionListener, KeyListener {
 	private Player player1;
 	private Player player2;
 	private Ball ball;
-	private CourtGraphic court = new CourtGraphic();
+	private CourtGraphic court;
 	
 	public void controlGUI() {
-		court = new CourtGraphic();
+		player1 = new Player(0);
+		player2 = new Player(0);
+		court = new CourtGraphic(player1, player2);
 		ui = new PongUI();
 		ui.guiMain(court);
 	}
 
 	public void move(){
-		if (upPressed) {
+		if (wPressed) {
             if (player1.getY()-player1.getyVel() > 0) {
                 int vel = player1.getY() - player1.getyVel();
             	player1.setY(vel);
             }
         }
-        if (downPressed) {
-            if (player1.getY() + player1.getyVel() + player1.getHeight() < getHeight()) {
+        if (sPressed) {
+            if (player1.getY() + player1.getyVel() + player1.getHeight() < court.getHeight()) {
                 int vel = player1.getY() + player1.getyVel();
             	player1.setY(vel);
             }
         }
 
 		//move player 2
-        if (wPressed) {
+        if (upPressed) {
         	if (player2.getY()-player2.getyVel() > 0) {
                 int vel = player2.getY() - player2.getyVel();
             	player2.setY(vel);
             }
         }
-        if (sPressed) {
-            if (player2.getY() + player2.getyVel() + player2.getHeight() < getHeight()) {
+        if (downPressed) {
+            if (player2.getY() + player2.getyVel() + player2.getHeight() < court.getHeight()) {
             	int vel = player2.getY() + player2.getyVel();
             	player2.setY(vel);
             }
+        }
+        if(ball.getX() < player1.getX()){
+        	int score = player1.getScore() + 1;
+        	player1.setScore(score);
+        }else if(ball.getX() > player2.getX()){
+        	int score = player2.getScore() + 1;
+        	player2.setScore(score);
         }
 	}
 	
