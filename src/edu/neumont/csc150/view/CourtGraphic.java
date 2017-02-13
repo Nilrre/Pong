@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import edu.neumont.csc150.Ball.Ball;
+import edu.neumont.csc150.Controller.Controller;
 import edu.neumont.csc150.User.Player;
 
 @SuppressWarnings("serial")
@@ -21,8 +22,8 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 	private Player player2;
 	private Ball ball;
 	
-	public CourtGraphic( Player one, Player two, Ball baller) {
-		setBackground(Color.BLACK);
+	public CourtGraphic( Player one, Player two, Ball baller, Controller c) {
+		setBackground(Color.black);
 		player1 = one;
 		player2 = two;
 		ball = baller;
@@ -40,7 +41,6 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 		g.setColor(Color.white);
 		
 		g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
-		System.out.println(player2.getX());
 		g.fillRect(player1.getX(), player1.getY(), player1.getWidth(), player1.getHeight());
 		g.fillRect(player2.getX(), player2.getY(), player2.getWidth(), player2.getHeight());
 		
