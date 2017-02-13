@@ -6,21 +6,36 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class PongUI {
+	private JMenuItem newGame, quit;
+	private JFrame frame;
 	
-	public void guiMain() {
-		JFrame frame = new JFrame("Pong");
+	/**
+	 * @return the frame
+	 */
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	/**
+	 * @param frame the frame to set
+	 */
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public void guiMain(CourtGraphic court) {
+		frame = new JFrame("Pong");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		CourtGraphic court = new CourtGraphic();
 		frame.getContentPane().add(court);
 		addMenu(frame, court);
 		frame.setVisible(true);
 	}
 	
 	public void addMenu(JFrame frame, CourtGraphic graphic) {
-		JMenuItem newGame = new JMenuItem("New Game");
+		newGame = new JMenuItem("New Game");
 		newGame.addActionListener(graphic);
-		JMenuItem quit = new JMenuItem("Quit");
+		quit = new JMenuItem("Quit");
 		quit.addActionListener(graphic);
 		JMenu menu = new JMenu("Game");
 		JMenuBar menuBar = new JMenuBar();
@@ -30,5 +45,33 @@ public class PongUI {
 		menu.add(quit);
 		menuBar.add(menu);
 		frame.setJMenuBar(menuBar);
+	}
+
+	/**
+	 * @return the newGame
+	 */
+	public JMenuItem getNewGame() {
+		return newGame;
+	}
+
+	/**
+	 * @param newGame the newGame to set
+	 */
+	public void setNewGame(JMenuItem newGame) {
+		this.newGame = newGame;
+	}
+
+	/**
+	 * @return the quit
+	 */
+	public JMenuItem getQuit() {
+		return quit;
+	}
+
+	/**
+	 * @param quit the quit to set
+	 */
+	public void setQuit(JMenuItem quit) {
+		this.quit = quit;
 	}
 }

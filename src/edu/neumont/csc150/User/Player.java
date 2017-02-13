@@ -1,6 +1,6 @@
 package edu.neumont.csc150.User;
 
-public class Player {
+public class Player extends Bar {
 	private String name;
 	private int score;
 	

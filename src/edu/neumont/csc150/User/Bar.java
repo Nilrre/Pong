@@ -5,6 +5,7 @@ public class Bar {
 	private int height;
 	private int x;
 	private int y;
+	private int yVel;
 	
 	public Bar(){}
 	
@@ -64,5 +65,18 @@ public class Bar {
 		this.y = y;
 	}
 	
-	
+	/**
+	 * @return the yVel
+	 */
+	public int getyVel() {
+		return yVel;
+	}
+
+	/**
+	 * @param yVel the yVel to set
+	 */
+	public void setyVel(int yVel) {
+		this.yVel = yVel;
+	}
+
 }
