@@ -1,5 +1,7 @@
 package edu.neumont.csc150.User;
 
+import edu.neumont.csc150.view.CourtGraphic;
+
 public class Bar {
 	private int width;
 	private int height;
@@ -14,6 +16,18 @@ public class Bar {
 		this.setWidth(width);
 		this.setX(x);
 		this.setY(y);
+	}
+	
+	public void moveUp(){
+        if (y-yVel > 0) {
+        	y -= yVel;
+        }
+	}
+	
+	public void moveDown() {
+        if (y + yVel + height < 1292) {
+            y += yVel;
+        }
 	}
 	
 	/**

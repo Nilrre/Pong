@@ -74,4 +74,5 @@ public class PongUI {
 	public void setQuit(JMenuItem quit) {
 		this.quit = quit;
 	}
+
 }

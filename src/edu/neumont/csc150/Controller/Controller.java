@@ -11,7 +11,7 @@ import edu.neumont.csc150.User.Player;
 import edu.neumont.csc150.view.CourtGraphic;
 import edu.neumont.csc150.view.PongUI;
 
-public class Controller implements ActionListener, KeyListener {
+public class Controller implements ActionListener {
 	private boolean upPressed = false;
 	private boolean downPressed = false;
 	private boolean sPressed = false;
@@ -23,86 +23,87 @@ public class Controller implements ActionListener, KeyListener {
 	private CourtGraphic court;
 	
 	public void controlGUI() {		
-		player1 = new Player(0,10,400,80,450,0);
-		player2 = new Player(0,2470,400, 80, 450, 0);
-		ball = new Ball(1250, 600, 85,85,10,10);
+		player1 = new Player(0,10,400,80,450,10);
+		player2 = new Player(0,2470,400, 80, 450, 10);
+		ball = new Ball(1250, 600, 85,85,20,20);
 		court = new CourtGraphic(player1, player2, ball, this);
 		ui = new PongUI();
 		ui.guiMain(court);
 	}
 
 	public void move(){
+		//move player 1
 		if (wPressed) {
-            if (player1.getY()-player1.getyVel() > 0) {
-                int vel = player1.getY() - player1.getyVel();
-            	player1.setY(vel);
-            }
+			player1.moveUp();
         }
         if (sPressed) {
-            if (player1.getY() + player1.getyVel() + player1.getHeight() < court.getHeight()) {
-                int vel = player1.getY() + player1.getyVel();
-            	player1.setY(vel);
-            }
+        	player1.moveDown();
         }
 
 		//move player 2
         if (upPressed) {
-        	if (player2.getY()-player2.getyVel() > 0) {
-                int vel = player2.getY() - player2.getyVel();
-            	player2.setY(vel);
-            }
+        	player2.moveUp();
         }
         if (downPressed) {
-            if (player2.getY() + player2.getyVel() + player2.getHeight() < court.getHeight()) {
-            	int vel = player2.getY() + player2.getyVel();
-            	player2.setY(vel);
-            }
-        }
-        
-        if(ball.getX() < player1.getX()){
-        	int score = player1.getScore() + 1;
-        	player1.setScore(score);
-        }else if(ball.getX() > player2.getX()){
-        	int score = player2.getScore() + 1;
-        	player2.setScore(score);
+            player2.moveDown();
         }
 	}
 	
-	public void keyTyped(KeyEvent e) {}
+	/**
+	 * @return the upPressed
+	 */
+	public boolean isUpPressed() {
+		return upPressed;
+	}
 
+	/**
+	 * @param upPressed the upPressed to set
+	 */
+	public void setUpPressed(boolean upPressed) {
+		this.upPressed = upPressed;
+	}
 
+	/**
+	 * @return the downPressed
+	 */
+	public boolean isDownPressed() {
+		return downPressed;
+	}
 
-    public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-                upPressed = true;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                downPressed = true;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_W) {
-                wPressed = true;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_S) {
-                sPressed = true;
-        }
-    }
+	/**
+	 * @param downPressed the downPressed to set
+	 */
+	public void setDownPressed(boolean downPressed) {
+		this.downPressed = downPressed;
+	}
 
+	/**
+	 * @return the sPressed
+	 */
+	public boolean issPressed() {
+		return sPressed;
+	}
 
-    public void keyReleased(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-                upPressed = false;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                downPressed = false;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_W) {
-                wPressed = false;
-            }
-            else if (e.getKeyCode() == KeyEvent.VK_S) {
-                sPressed = false;
-            }
-    }
+	/**
+	 * @param sPressed the sPressed to set
+	 */
+	public void setsPressed(boolean sPressed) {
+		this.sPressed = sPressed;
+	}
 
+	/**
+	 * @return the wPressed
+	 */
+	public boolean iswPressed() {
+		return wPressed;
+	}
+
+	/**
+	 * @param wPressed the wPressed to set
+	 */
+	public void setwPressed(boolean wPressed) {
+		this.wPressed = wPressed;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
