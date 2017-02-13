@@ -40,8 +40,9 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 		g.setColor(Color.white);
 		
 		g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
-		g.fillRect(player1.getX(), player1.getY(), player1.getWidth(), player1.getWidth());
-		g.fillRect(player2.getX(), player2.getY(), player2.getWidth(), player2.getWidth());
+		System.out.println(player2.getX());
+		g.fillRect(player1.getX(), player1.getY(), player1.getWidth(), player1.getHeight());
+		g.fillRect(player2.getX(), player2.getY(), player2.getWidth(), player2.getHeight());
 		
         for (int lineY = 0; lineY < getHeight(); lineY += 50) {
             g.drawLine((this.getWidth()/2), lineY, (this.getWidth()/2), lineY+25);

@@ -22,9 +22,9 @@ public class Controller implements ActionListener, KeyListener {
 	private Ball ball;
 	private CourtGraphic court;
 	
-	public void controlGUI() {
-		player1 = new Player(0);
-		player2 = new Player(0);
+	public void controlGUI() {		
+		player1 = new Player(0,0,400,100,500,0);
+		player2 = new Player(0,2450,400, 100, 500, 0);
 		ball = new Ball(1250, 600, 60,60,50,50);
 		court = new CourtGraphic(player1, player2, ball);
 		ui = new PongUI();

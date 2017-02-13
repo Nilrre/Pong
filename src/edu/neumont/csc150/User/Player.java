@@ -6,8 +6,12 @@ public class Player extends Bar {
 	
 	public Player(){}
 	
-	public Player(int score){
-//		this.setName(name);
+	public Player(int score, int x, int y, int width, int height, int yvel){
+		this.setHeight(height);
+		this.setWidth(width);
+		this.setX(x);
+		this.setY(y);
+		this.setyVel(yvel);
 		this.setScore(score);
 	}
 	
