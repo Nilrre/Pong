@@ -21,14 +21,15 @@ public class Ball {
 	 * @param lObjX
 	 * @param lObjY
 	 */
-	public void detectCollision(int rObjX, int rObjY, int lObjX, int lObjY) {
+	public void detectCollision(int rObjX,int height, int lObjX, int height2) {
 		if(this.x >= rObjX - this.width || this.x < lObjX) {
 			this.xVel *= -1;
 		}
-		if(this.y >= lObjY - this.height || this.y < lObjY) {
-			this.yVel *= -1;
-		}
+//		if(this.y >= height2 - this.height || this.y < height2) {
+//			this.yVel *= -1;
+//		}
 	}
+	
 	/**
 	 * @return the x
 	 */

@@ -55,6 +55,19 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (ball != null) {
+			ball.setX(ball.getX() + ball.getxVel());
+			ball.setY(ball.getY() + ball.getyVel());
+		}
+		
+		if(ball.getY() <= 0 || ball.getY() >= this.getHeight()-ball.getHeight()) {
+			int speed = ball.getyVel() * -1;
+			ball.setyVel(speed);
+		}
+		
+		player1.paddleLeftCollision(ball);
+		player2.paddleRightCollision(ball);
+		
 		this.repaint();
 	}
 

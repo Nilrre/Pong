@@ -25,7 +25,7 @@ public class Controller implements ActionListener, KeyListener {
 	public void controlGUI() {		
 		player1 = new Player(0,10,400,80,450,0);
 		player2 = new Player(0,2470,400, 80, 450, 0);
-		ball = new Ball(1250, 600, 85,85,50,50);
+		ball = new Ball(1250, 600, 85,85,10,10);
 		court = new CourtGraphic(player1, player2, ball, this);
 		ui = new PongUI();
 		ui.guiMain(court);
@@ -58,6 +58,7 @@ public class Controller implements ActionListener, KeyListener {
             	player2.setY(vel);
             }
         }
+        
         if(ball.getX() < player1.getX()){
         	int score = player1.getScore() + 1;
         	player1.setScore(score);
