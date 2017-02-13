@@ -19,9 +19,10 @@ public class Player extends Bar {
 	}
 
 	public void paddleLeftCollision(Ball b) {
-		System.out.println(b.getxVel());
-		if (b.getX() + b.getxVel() < this.getX() + this.getWidth()) {
-			if (b.getY() + b.getyVel() >= this.getY() && b.getY() + b.getyVel() <= this.getHeight() + this.getY()) {
+		if (b.getX() + b.getxVel() < this.getX() + this.getWidth() + 10
+				|| b.getX() + b.getxVel() < this.getX() + this.getWidth() - 10) {
+			if (b.getY() + b.getyVel() >= this.getY() && b.getY() + b.getyVel() <= this.getHeight() + this.getY()
+					&& !(b.getX() < this.getX() + 10)) {
 				int speed = b.getxVel() * -1;
 				b.setxVel(speed);
 			}
@@ -33,9 +34,9 @@ public class Player extends Bar {
 	}
 
 	public void paddleRightCollision(Ball b) {
-		if (b.getX() + b.getWidth() + b.getxVel() >= this.getX()) {
+		if (b.getX() + b.getWidth() >= this.getX() - 10 || b.getX() + b.getWidth() >= this.getX() + 10) {
 			if (b.getY() - b.getHeight() + b.getyVel() >= this.getY()
-					&& b.getY() - b.getyVel() <= this.getHeight() + this.getY()) {
+					&& b.getY() - b.getyVel() <= this.getHeight() + this.getY() && !(b.getX() > this.getX() + 10)) {
 				int speed = b.getxVel() * -1;
 				b.setxVel(speed);
 			} else if (b.getX() > 2560) {
