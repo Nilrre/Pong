@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -74,6 +75,18 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 		player1.paddleLeftCollision(ball, player2);
 
 		this.repaint();
+		
+		if (e.getSource() instanceof JMenuItem) {
+			JMenuItem sourceMenuItem = (JMenuItem)e.getSource();
+			if(sourceMenuItem.getText().equals("New Game")) {
+				//Reset Scores and ball
+				this.resetGame();
+			} else if (sourceMenuItem.getText().equals("Quit")) {
+				//Exits GUI
+				System.exit(0);
+			}
+		}
+			
 	}
 
 	@Override
@@ -92,25 +105,33 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            control.setUpPressed(false);
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            control.setDownPressed(false);
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_W) {
-            control.setwPressed(false);
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_S) {
-            control.setsPressed(false);
-        }
-        this.repaint();
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			control.setUpPressed(false);
+		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			control.setDownPressed(false);
+		} else if (e.getKeyCode() == KeyEvent.VK_W) {
+			control.setwPressed(false);
+		} else if (e.getKeyCode() == KeyEvent.VK_S) {
+			control.setsPressed(false);
+		}
+		this.repaint();
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void resetGame() {
+		player1.setScore(0);
+		player1.setX(10);
+		player1.setY(400);
+		player2.setScore(0);
+		player2.setX(2470);
+		player2.setY(400);
+		ball.setX(1250);
+		ball.setY(600);
 	}
 
 }

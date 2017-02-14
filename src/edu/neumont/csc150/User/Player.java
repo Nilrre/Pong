@@ -73,4 +73,9 @@ public class Player extends Bar {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+	public int resetScore() {
+		score = 0;
+		return score;
+	}
 }
