@@ -77,17 +77,6 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 		control.scoreCheck();
 
 		this.repaint();
-		
-		if (e.getSource() instanceof JMenuItem) {
-			JMenuItem sourceMenuItem = (JMenuItem)e.getSource();
-			if(sourceMenuItem.getText().equals("New Game")) {
-				//Reset Scores and ball
-				this.resetGame();
-			} else if (sourceMenuItem.getText().equals("Quit")) {
-				//Exits GUI
-				System.exit(0);
-			}
-		}
 			
 	}
 
@@ -125,15 +114,6 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 
 	}
 	
-	public void resetGame() {
-		player1.setScore(0);
-		player1.setX(10);
-		player1.setY(400);
-		player2.setScore(0);
-		player2.setX(2470);
-		player2.setY(400);
-		ball.setX(1250);
-		ball.setY(600);
-	}
+
 
 }

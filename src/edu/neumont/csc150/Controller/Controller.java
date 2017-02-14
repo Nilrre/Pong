@@ -29,16 +29,17 @@ public class Controller implements ActionListener {
 		ui.guiMain(court, this);
 	}
 
+	@SuppressWarnings("static-access")
 	public void scoreCheck() {
 		if(player1.getScore() == 11) {
-			ui.getOver().showMessageDialog(court, "player1 you won\npress ok to reset the game");
+			ui.getOver().showMessageDialog(court, "player1 you won\npress Ok to reset the game");
 			player1.setScore(0);
 			player2.setScore(0);
 		}
 		if(player2.getScore() == 11) {
-			ui.getOver().showMessageDialog(court, "player2 you won\npress ok to reset the game");
-			player2.setScore(0);
+			ui.getOver().showMessageDialog(court, "player2 you won\npress Ok to reset the game");
 			player1.setScore(0);
+			player2.setScore(0);
 		}
 	}
 	
@@ -119,10 +120,20 @@ public class Controller implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getSource() == ui.getNewGame()) {
-			player1.setScore(0);
-			player2.setScore(0);
+			this.resetGame();
 		}else if(evt.getSource() == ui.getQuit()) {
 			ui.getFrame().dispatchEvent(new WindowEvent(ui.getFrame(), WindowEvent.WINDOW_CLOSING));
 		}
+	}
+	
+	public void resetGame() {
+		player1.setScore(0);
+		player1.setX(10);
+		player1.setY(400);
+		player2.setScore(0);
+		player2.setX(2470);
+		player2.setY(400);
+		ball.setX(1250);
+		ball.setY(600);
 	}
 }
