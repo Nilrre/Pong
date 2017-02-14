@@ -4,11 +4,29 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import edu.neumont.csc150.Controller.Controller;
 
 public class PongUI {
 	private JMenuItem newGame, quit;
 	private JFrame frame;
+	private JOptionPane over;
 	
+	/**
+	 * @return the over
+	 */
+	public JOptionPane getOver() {
+		return over;
+	}
+
+	/**
+	 * @param over the over to set
+	 */
+	public void setOver(JOptionPane over) {
+		this.over = over;
+	}
+
 	/**
 	 * @return the frame
 	 */
@@ -23,16 +41,17 @@ public class PongUI {
 		this.frame = frame;
 	}
 
-	public void guiMain(CourtGraphic court) {
+	public void guiMain(CourtGraphic court, Controller control) {
 		frame = new JFrame("Pong");
+		over = new JOptionPane("you won");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.getContentPane().add(court);
-		addMenu(frame, court);
+		addMenu(frame, control);
 		frame.setVisible(true);
 	}
 	
-	public void addMenu(JFrame frame, CourtGraphic graphic) {
+	public void addMenu(JFrame frame, Controller graphic) {
 		newGame = new JMenuItem("New Game");
 		newGame.addActionListener(graphic);
 		quit = new JMenuItem("Quit");
@@ -74,5 +93,4 @@ public class PongUI {
 	public void setQuit(JMenuItem quit) {
 		this.quit = quit;
 	}
-
 }

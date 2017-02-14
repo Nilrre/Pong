@@ -1,7 +1,5 @@
 package edu.neumont.csc150.User;
 
-import edu.neumont.csc150.view.CourtGraphic;
-
 public class Bar {
 	private int width;
 	private int height;
