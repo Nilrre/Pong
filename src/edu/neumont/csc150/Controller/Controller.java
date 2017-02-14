@@ -23,12 +23,25 @@ public class Controller implements ActionListener {
 	public void controlGUI() {		
 		player1 = new Player(0,10,400,80,450,10);
 		player2 = new Player(0,2470,400, 80, 450, 10);
-		ball = new Ball(1250, 600, 85,85,20,20);
+		ball = new Ball(1250, 600, 85,85,10,10);
 		court = new CourtGraphic(player1, player2, ball, this);
 		ui = new PongUI();
-		ui.guiMain(court);
+		ui.guiMain(court, this);
 	}
 
+	public void scoreCheck() {
+		if(player1.getScore() == 11) {
+			ui.getOver().showMessageDialog(court, "player1 you won\npress ok to reset the game");
+			player1.setScore(0);
+			player2.setScore(0);
+		}
+		if(player2.getScore() == 11) {
+			ui.getOver().showMessageDialog(court, "player2 you won\npress ok to reset the game");
+			player2.setScore(0);
+			player1.setScore(0);
+		}
+	}
+	
 	public void move(){
 		//move player 1
 		if (wPressed) {
@@ -110,7 +123,6 @@ public class Controller implements ActionListener {
 			player2.setScore(0);
 		}else if(evt.getSource() == ui.getQuit()) {
 			ui.getFrame().dispatchEvent(new WindowEvent(ui.getFrame(), WindowEvent.WINDOW_CLOSING));
-
 		}
 	}
 }

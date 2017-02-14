@@ -5,10 +5,10 @@ import edu.neumont.csc150.Ball.Ball;
 public class Player extends Bar {
 	private String name;
 	private int score;
-	
+
 	public Player() {
 	}
-
+	
 	public Player(int score, int x, int y, int width, int height, int yvel) {
 		this.setHeight(height);
 		this.setWidth(width);
@@ -17,13 +17,13 @@ public class Player extends Bar {
 		this.setyVel(yvel);
 		this.setScore(score);
 	}
-	
+
 	public void paddleLeftCollision(Ball b, Player two) {
-		if(b.getX() < this.getX()+this.getWidth()-10) {
-			if(b.getY() > this.getY() && b.getY() < this.getY()+this.getHeight()){
-				int speed = b.getxVel() * -1;
-				b.setxVel(speed);
-			}else if(b.getX() <= 0) {
+		if (b.getX() < this.getX() + this.getWidth() - 10) {
+			if (b.getY() > this.getY() && b.getY() < this.getY() + this.getHeight()) {
+					int speed = b.getxVel() * -1;
+					b.setxVel(speed);
+			} else if (b.getX() <= 0) {
 				two.score++;
 				b.setX(1250);
 				b.setY(600);
@@ -32,16 +32,16 @@ public class Player extends Bar {
 	}
 
 	public void paddleRightCollision(Ball b, Player one) {
-		if(b.getX()+this.getWidth() >= this.getX()+9) {
-			if(b.getY() > this.getY() && b.getY() < this.getY()+this.getHeight()){
-				int speed = b.getxVel() * -1;
-				b.setxVel(speed);
-			}else if(b.getX() >= 2560) {
+		if (b.getX() + this.getWidth() >= this.getX() + 9) {
+			if (b.getY() > this.getY() && b.getY() < this.getY() + this.getHeight()) {
+					int speed = b.getxVel() * -1;
+					b.setxVel(speed);
+			} else if (b.getX() >= 2560) {
 				one.score++;
 				b.setX(1250);
 				b.setY(600);
 			}
-		}		
+		}
 	}
 
 	/**

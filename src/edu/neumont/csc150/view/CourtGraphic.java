@@ -73,6 +73,8 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 
 		player2.paddleRightCollision(ball, player1);
 		player1.paddleLeftCollision(ball, player2);
+		
+		control.scoreCheck();
 
 		this.repaint();
 		
