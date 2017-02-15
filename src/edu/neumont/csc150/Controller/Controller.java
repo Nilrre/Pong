@@ -31,12 +31,12 @@ public class Controller implements ActionListener {
 
 	@SuppressWarnings("static-access")
 	public void scoreCheck() {
-		if(player1.getScore() == 10) {
-			ui.getOver().showMessageDialog(court, "Player 1 you won!\nPress OK to reset the game.");
+		if(player1.getScore() == 7) {
+			ui.getOver().showMessageDialog(court, "Player 2 you won!\nPress OK to reset the game.");
 			this.resetGame();
 		}
-		if(player2.getScore() == 10) {
-			ui.getOver().showMessageDialog(court, "Player 2 you won!\nPress OK to reset the game.");
+		if(player2.getScore() == 7) {
+			ui.getOver().showMessageDialog(court, "Player 1 you won!\nPress OK to reset the game.");
 			this.resetGame();
 		}
 	}

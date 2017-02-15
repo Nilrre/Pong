@@ -18,26 +18,26 @@ public class Player extends Bar {
 		this.setScore(score);
 	}
 
-	public void paddleLeftCollision(Ball b, Player two) {
+	public void paddleLeftCollision(Ball b, Player one) {
 		if (b.getX() < this.getX() + this.getWidth() - 10) {
 			if (b.getY() > this.getY() && b.getY() < this.getY() + this.getHeight()) {
 					int speed = b.getxVel() * -1;
 					b.setxVel(speed);
 			} else if (b.getX() <= 0) {
-				two.score++;
+				one.score++;
 				b.setX(1250);
 				b.setY(600);
 			}
 		}
 	}
 
-	public void paddleRightCollision(Ball b, Player one) {
+	public void paddleRightCollision(Ball b, Player two) {
 		if (b.getX() + this.getWidth() >= this.getX() + 9) {
 			if (b.getY() > this.getY() && b.getY() < this.getY() + this.getHeight()) {
 					int speed = b.getxVel() * -1;
 					b.setxVel(speed);
 			} else if (b.getX() >= 2560) {
-				one.score++;
+				two.score++;
 				b.setX(1250);
 				b.setY(600);
 			}

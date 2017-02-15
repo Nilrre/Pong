@@ -51,8 +51,8 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 		}
 
 		g.setFont(new Font(Font.DIALOG, Font.BOLD, 60));
-		g.drawString(String.valueOf(player1.getScore()), (this.getWidth() / 2) - 200, 100);
-		g.drawString(String.valueOf(player2.getScore()), (this.getWidth() / 2) + 200, 100);
+		g.drawString(String.valueOf(player1.getScore()), (this.getWidth() / 2) + 200, 100);
+		g.drawString(String.valueOf(player2.getScore()), (this.getWidth() / 2) - 200, 100);
 		this.repaint();
 	}
 
