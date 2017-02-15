@@ -11,7 +11,7 @@ import edu.neumont.csc150.Controller.Controller;
 public class PongUI {
 	private JMenuItem newGame, quit;
 	private JFrame frame;
-	private JOptionPane over;
+	private JOptionPane over, start;
 	
 	/**
 	 * @return the over
@@ -43,6 +43,7 @@ public class PongUI {
 
 	public void guiMain(CourtGraphic court, Controller control) {
 		frame = new JFrame("Pong");
+		setStart(new JOptionPane("start"));
 		over = new JOptionPane("you won");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -92,5 +93,21 @@ public class PongUI {
 	 */
 	public void setQuit(JMenuItem quit) {
 		this.quit = quit;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JOptionPane getStart() {
+		return start;
+	}
+	
+	/**
+	 * 
+	 * @param start
+	 */
+	public void setStart(JOptionPane start) {
+		this.start = start;
 	}
 }

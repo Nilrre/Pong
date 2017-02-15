@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -71,8 +70,8 @@ public class CourtGraphic extends JPanel implements ActionListener, KeyListener 
 			ball.setyVel(speed);
 		}
 
-		player2.paddleRightCollision(ball, player1);
-		player1.paddleLeftCollision(ball, player2);
+		player1.paddleLeftCollision(ball, player1);
+		player2.paddleRightCollision(ball, player2);
 		
 		control.scoreCheck();
 

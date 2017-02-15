@@ -20,6 +20,7 @@ public class Controller implements ActionListener {
 	private Ball ball;
 	private CourtGraphic court;
 	
+	@SuppressWarnings("static-access")
 	public void controlGUI() {		
 		player1 = new Player(0,10,400,80,450,10);
 		player2 = new Player(0,2470,400, 80, 450, 10);
@@ -27,19 +28,18 @@ public class Controller implements ActionListener {
 		court = new CourtGraphic(player1, player2, ball, this);
 		ui = new PongUI();
 		ui.guiMain(court, this);
+		ui.getStart().showMessageDialog(court, "Press OK to start the game.");
 	}
 
 	@SuppressWarnings("static-access")
 	public void scoreCheck() {
-		if(player1.getScore() == 11) {
-			ui.getOver().showMessageDialog(court, "player1 you won\npress Ok to reset the game");
-			player1.setScore(0);
-			player2.setScore(0);
+		if(player1.getScore() == 10) {
+			ui.getOver().showMessageDialog(court, "Player 1 you won!\nPress OK to reset the game.");
+			this.resetGame();
 		}
-		if(player2.getScore() == 11) {
-			ui.getOver().showMessageDialog(court, "player2 you won\npress Ok to reset the game");
-			player1.setScore(0);
-			player2.setScore(0);
+		if(player2.getScore() == 10) {
+			ui.getOver().showMessageDialog(court, "Player 2 you won!\nPress OK to reset the game.");
+			this.resetGame();
 		}
 	}
 	
