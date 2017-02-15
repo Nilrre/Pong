@@ -20,7 +20,6 @@ public class Controller implements ActionListener {
 	private Ball ball;
 	private CourtGraphic court;
 	
-	@SuppressWarnings("static-access")
 	public void controlGUI() {		
 		player1 = new Player(0,10,400,80,450,10);
 		player2 = new Player(0,2470,400, 80, 450, 10);
@@ -28,7 +27,6 @@ public class Controller implements ActionListener {
 		court = new CourtGraphic(player1, player2, ball, this);
 		ui = new PongUI();
 		ui.guiMain(court, this);
-		ui.getStart().showMessageDialog(court, "Press OK to start the game.");
 	}
 
 	@SuppressWarnings("static-access")
